@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS 13-14</title>
+    <link rel="icon" href="http://goit.ua/wp-content/themes/goit/images/favicon.ico" type="image/x-icon"/>
+    <script src="js/jquery-1.12.2.min.js" charset="utf-8"></script>
+    <script src="js/microTemplates.js" charset="utf-8"></script>
+    <script src="js/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <script type="text/template" id="quiz">
+        <form action="" class="quiz">
+          <div class="quiz-head">
+            <p class="quiz-title"><%= name %></p>
+          </div>
+          <div class="quiz-body">
+            <% for (var x = 0; x < data.length; x++) { %>
+              <div class="question">
+                <p class="question-title" id="<%= 'q' + (x + 1) %>">
+                  <%= (x + 1) + '. ' + data[x].question %>
+                </p>
+                <% for (var i = 0; i < data[x].answers.length; i++) { %>
+                  <div class="answer-box">
+                    <label class="answer">
+                      <input type="checkbox" name="<%= 'q' + (x + 1) %>" value="<%= (i + 1) %>">
+                      <span><%= data[x].answers[i] %></span>
+                    </label>
+                  </div>
+                  <% }; %>
+                </div>
+                <% }; %>
+          </div>
+          <div class="quiz-footer">
+            <input type="submit" value="Get Result" class="btn-submit">
+          </div>
+        </form>
+    </script>
+    <div class="wrapper">
+    </div>
+</body>
+
+</html>
